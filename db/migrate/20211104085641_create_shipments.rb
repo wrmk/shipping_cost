@@ -8,6 +8,7 @@ class CreateShipments < ActiveRecord::Migration[6.1]
       t.string :departure
       t.string :destination
       t.float :price
+      t.float :distance
       t.timestamps
     end
   end

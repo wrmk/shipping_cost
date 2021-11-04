@@ -8,6 +8,6 @@ class ShipmentsController < ApplicationController
 
   private
   def shipping_params
-    params.permit(:length, :width, :height, :volume, :destination, :departure)
+    params.permit(:length, :width, :height, :volume, :destination, :departure, :distance)
   end  
 end

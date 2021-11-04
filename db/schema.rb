@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_085641) do
     t.string "departure"
     t.string "destination"
     t.float "price"
+    t.float "distance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
