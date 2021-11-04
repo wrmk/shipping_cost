@@ -1,2 +1,48 @@
-<h1>Shipments#new</h1>
-<p>Find me in app/views/shipments/new.html.erb</p>
+<%= form_with do |form| %>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Длина</span>
+    <div class="w-20">
+      <%= form.text_field :length,class:"form-control" %>
+    </div>
+  </div> 
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Ширина</span>
+    <div class="w-20">
+      <%= form.text_field :width,class:"form-control" %>
+    </div>
+  </div>  
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Высота</span>
+    <div class="w-20">
+      <%= form.text_field :height,class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Объём</span>
+    <div class="w-20">
+      <%= form.text_field :volume,class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Город отправки</span>
+    <div class="w-20">
+      <%= form.text_field :departure,class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Город доставки</span>
+    <div class="w-20">
+      <%= form.text_field :destination,class:"form-control" %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= form.submit :Submit,class:"btn btn-dark" %>
+  </div>
+<% end %>
+
