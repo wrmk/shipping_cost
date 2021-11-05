@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 2021_11_04_085641) do
 
   create_table "shipments", force: :cascade do |t|
-    t.string "length"
-    t.string "width"
-    t.string "height"
-    t.string "volume"
+    t.integer "length"
+    t.integer "width"
+    t.integer "height"
+    t.integer "volume"
+    t.integer "price"
+    t.integer "distance"
     t.string "departure"
     t.string "destination"
-    t.float "price"
-    t.float "distance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
