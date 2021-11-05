@@ -1,14 +1,14 @@
 <%= form_with do |form| %>
 
   <div class="form-group w-25 p-3">
-    <label> Длина </label>
-    <%= form.text_field :length,class:"form-control" %>
-    <label> Ширина </label>
-    <%= form.text_field :width,class:"form-control" %>
-    <label> Высота </label>
-    <%= form.text_field :height,class:"form-control" %>
+    <label> Длина, м </label>
+    <%= form.text_field :length,class:"form-control", onchange:"validate(this)" %>
+    <label> Ширина, м </label>
+    <%= form.text_field :width,class:"form-control", onchange:"validate(this)" %>
+    <label> Высота, м </label>
+    <%= form.text_field :height,class:"form-control", onchange:"validate(this)" %>
     <label> Объём </label>
-    <%= form.text_field :volume,class:"form-control" %>
+    <%= form.text_field :volume,class:"form-control", onchange:"validate(this)" %>
     <label> Город отправки </label>
     <%= form.text_field :departure,class:"form-control" %>
     <label> Город доставки </label>
@@ -21,18 +21,30 @@
 
 
 <script>
-  ymaps.ready(function(){
-    var departure = "Москва";
-    var destination = "Нижний Новгород";
-    ymaps.route([departure,destination]).then(
-      function(route){
-        var distance = route.getLength();
-        set_distance(Math.round(distance/1000));
-      });
-      
+  function validate(field){
+    if (Number.isInteger(parseInt(field.value))){
+    } else {
+      alert('введите целое число');
+      field.value = ''
+    }
+  };
+  $('form').submit(function () {
+       alert('Выберите файл');
+       return false;
   });
 
-  function set_distance(distance){
-    document.getElementById("distance").value = distance;
-  }
+  // ymaps.ready(function(){
+  //   var departure = "Москва";
+  //   var destination = "Петрозаводск";
+  //   ymaps.route([departure,destination]).then(
+  //     function(route){
+  //       var distance = route.getLength();
+  //       set_distance(Math.round(distance/1000));
+  //     });
+      
+  // });
+
+  // function set_distance(distance){
+  //   document.getElementById("distance").value = distance;
+  // }
 </script>
