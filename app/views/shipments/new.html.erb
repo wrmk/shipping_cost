@@ -22,6 +22,7 @@
 
 
 <script>
+
   function validate(field){
     if (Number.isInteger(parseInt(field.value))){
     } else {
@@ -29,30 +30,42 @@
       field.value = ''
     }
   };
+
   function calculate(){
+    let empty_fields = 0;
+    $("input[type=text]")
+      .each(function(index){
+        if (this.value === '') empty_fields ++ ;
+      });
+    empty_fields < 1 ? get_distance() : alert('введите все значения для расчёта')
+  };
+
+  function get_distance(){
     ymaps.ready(function(){
       var departure = document.getElementById("departure");
       var destination = document.getElementById("destination");
 
       ymaps.route([departure.value,destination.value])
         .then(function(route){
-          console.log(route);
           var distance = route.getLength();
           set_distance(Math.round(distance/1000));
-          form = document.querySelector('form');
-          Rails.fire(form, 'submit');
+          submit_form();
         })
         .catch (function(error) {
           alert('введите корректные названия городов');
           departure.value = '';
           destination.value = '';
         });
-    });
-  };
-
+    });    
+  }
 
   function set_distance(distance){
     console.log(distance);
     document.getElementById("distance").value = distance;
+  }
+
+  function submit_form(){
+    form = document.querySelector('form');
+    Rails.fire(form, 'submit');    
   }
 </script>
