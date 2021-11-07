@@ -31,16 +31,21 @@
   };
   function calculate(){
     ymaps.ready(function(){
-      var departure = document.getElementById("departure").value;
-      var destination = document.getElementById("destination").value;
+      var departure = document.getElementById("departure");
+      var destination = document.getElementById("destination");
 
-      ymaps.route([departure,destination]).then(
-        function(route){
+      ymaps.route([departure.value,destination.value])
+        .then(function(route){
           console.log(route);
           var distance = route.getLength();
           set_distance(Math.round(distance/1000));
           form = document.querySelector('form');
           Rails.fire(form, 'submit');
+        })
+        .catch (function(error) {
+          alert('введите корректные названия городов');
+          departure.value = '';
+          destination.value = '';
         });
     });
   };
