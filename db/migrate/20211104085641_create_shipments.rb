@@ -1,11 +1,11 @@
 class CreateShipments < ActiveRecord::Migration[6.1]
   def change
     create_table :shipments do |t|
-      t.integer :length
-      t.integer :width
-      t.integer :height
-      t.integer :volume
-      t.integer :price
+      t.float :length
+      t.float :width
+      t.float :height
+      t.float :volume
+      t.float :price
       t.integer :distance
       t.string :departure
       t.string :destination

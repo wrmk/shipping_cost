@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2021_11_04_085641) do
 
   create_table "shipments", force: :cascade do |t|
-    t.integer "length"
-    t.integer "width"
-    t.integer "height"
-    t.integer "volume"
-    t.integer "price"
+    t.float "length"
+    t.float "width"
+    t.float "height"
+    t.float "volume"
+    t.float "price"
     t.integer "distance"
     t.string "departure"
     t.string "destination"
