@@ -24,9 +24,9 @@
 <script>
 
   function validate(field){
-    if (Number.isInteger(parseInt(field.value))){
+    if (!isNaN(+field.value) && +field.value != 0){
     } else {
-      alert('введите целое число');
+      alert('введите число');
       field.value = ''
     }
   };
