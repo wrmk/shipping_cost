@@ -1,4 +1,5 @@
 class ShipmentsController < ApplicationController
+
   def new
   end
 
@@ -9,7 +10,7 @@ class ShipmentsController < ApplicationController
     shipment.save
     respond_to do |format|
       format.html { render html: "Price = #{shipment.price}" }
-      format.json { render json: shipment.price }
+      format.json { render json: shipment, only: [:price] }
     end
   end
 
