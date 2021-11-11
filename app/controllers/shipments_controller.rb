@@ -7,6 +7,10 @@ class ShipmentsController < ApplicationController
     price = 500 + (shipping_params[:distance].to_f * (shipping_params[:length].to_f + shipping_params[:width].to_f + shipping_params[:height].to_f + shipping_params[:volume].to_f))
     shipment.update(price: price)
     shipment.save
+    respond_to do |format|
+      format.html { render html: "Price = #{shipment.price}" }
+      format.json { render json: shipment.price }
+    end
   end
 
   private
