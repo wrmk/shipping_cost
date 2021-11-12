@@ -5,13 +5,13 @@
 
         <div class="form-group">
           <label> Длина, м </label>
-          <%= form.text_field :length,class:"form-control", onchange:"validate(this)" %>
+          <%= form.text_field :length,class:"form-control" %>
           <label> Ширина, м </label>
-          <%= form.text_field :width,class:"form-control", onchange:"validate(this)" %>
+          <%= form.text_field :width,class:"form-control" %>
           <label> Высота, м </label>
-          <%= form.text_field :height,class:"form-control", onchange:"validate(this)" %>
+          <%= form.text_field :height,class:"form-control" %>
           <label> Объём, м³ </label>
-          <%= form.text_field :volume,class:"form-control", onchange:"validate(this)" %>
+          <%= form.text_field :volume,class:"form-control" %>
           <label> Город отправки </label>
           <%= form.text_field :departure,class:"form-control", id:"departure" %>
           <label> Город доставки </label>
@@ -42,7 +42,6 @@
       </table>
     </div> 
   </div>
- 
 </div>
 
 <script>
@@ -59,13 +58,13 @@
     };
   });
 
-  function validate(field){
-    if (!isNaN(+field.value) && +field.value != 0){
+  $("input[type=text]:not(#departure, #destination)").on('change',function(){
+    if (!isNaN(+this.value) && +this.value != 0){
     } else {
       alert('введите число');
-      field.value = ''
+      this.value = ''
     }
-  };
+  });
 
   function get_distance(){
     ymaps.ready(function(){
