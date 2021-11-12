@@ -28,14 +28,16 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Топ городов отправки</th>
+            <th scope="col">Город</th>
+            <th scope="col">Отправок</th>
           </tr>
         </thead>        
         <tbody>
-          <% @top_destination.each_with_index do |city,index| %>
+          <% @top_departures.each_with_index do |city,index| %>
             <tr>
               <th><%= index+1 %></th>
-              <td><%= city %></td>
+              <td><%= city[0] %></td>
+              <td><%= city[1] %></td>
             </tr>
           <% end %>
         </tbody>

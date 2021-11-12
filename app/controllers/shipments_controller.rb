@@ -1,7 +1,7 @@
 class ShipmentsController < ApplicationController
 
   def new
-    @top_destination = %w[df dsfsd dfsdf]
+    @top_departures = Shipment.top_departures.first(3)
   end
 
   def create
