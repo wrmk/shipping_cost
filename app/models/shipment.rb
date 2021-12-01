@@ -8,5 +8,5 @@ class Shipment < ApplicationRecord
   validates :departure, presence: true
   validates :destination, presence: true
 
-  scope :top_departures, -> {pluck(:departure).tally.sort_by{|city| city[1]}.reverse}
+  scope :top_departures, -> {pluck(:departure).tally.sort_by{|city| -city[1]}}
 end
